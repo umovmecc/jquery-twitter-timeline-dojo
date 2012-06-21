@@ -1,0 +1,61 @@
+body {
+  background-color:efffff;
+}
+
+section{
+  margin-top:30px;
+}
+
+textarea {
+  width:100%;
+}
+
+#compose {
+  text-align:right;
+}
+
+#timeline {
+  border:1px solid #bbb;
+  border-radius:5px;
+  background-color:#fbfbfb;
+}
+
+#timeline ul {
+  margin:0;
+  padding:2px 0;
+  list-style:none;
+  height:500px;
+}
+
+.tweet {
+  margin:2px 5px;
+  padding:2px 5px;
+  border:1px solid #aaa;
+  border-radius:3px;
+  background-color:#f8ffff;
+}
+
+.tweet:hover {
+  background-color:#eff4f4;
+}
+
+.tweet .user {
+  font-weight:bold;
+}
+
+.tweet .delete {
+  color:#888;
+  float:right;
+  margin-left:3px;
+  cursor:pointer;
+}
+
+.tweet .text {
+  margin:0;
+  font-size:12px;
+}
+
+.tweet .time {
+  color:#888;
+  font-size:11px;
+}
