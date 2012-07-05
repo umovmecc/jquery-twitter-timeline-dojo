@@ -2,13 +2,25 @@
   <head>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="assets/css/custom.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/js/test/lib/jasmine-1.2.0/jasmine.css">
+
     <script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/test/lib/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="assets/js/test/lib/jasmine-1.2.0/jasmine-html.js"></script>
+
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="assets/js/test/spec/TwitterSpec.js"></script>
+
+    <!-- include source files here... -->
+    <script type="text/javascript" src="assets/js/Twitter.js"></script>
+
   </head>
   <body>
     <section id="compose" class="span8 offset3">
       <textarea placeholder="What are you doing ?"></textarea>
       <br/>
-      <input type="button" value="Tweet" />
+      <input type="button" id='tweet' value="Tweet" />
     </section>
 
     <section id="timeline" class="span8 offset3">
@@ -25,9 +37,32 @@
     </section>
     
     <script type="text/javascript">
-      $(function() {
-        console.log('Hello jQuery');
-      });
+    $(function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var htmlReporter = new jasmine.HtmlReporter();
+
+      jasmineEnv.addReporter(htmlReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return htmlReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    });
     </script>
 
   </body>
