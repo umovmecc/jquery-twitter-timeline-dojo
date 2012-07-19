@@ -61,7 +61,6 @@ textarea {
 }
 
 #HTMLReporter {
-  float:left;
-  width:100%;
-  padding-bottom:20px;
+  clear:both;
+  padding:20px 0;
 }
